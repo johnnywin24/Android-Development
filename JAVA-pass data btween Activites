@@ -1,0 +1,46 @@
+//Action for clicking Create - shows how to pass data between activites
+        Button createButton = (Button) findViewById(R.id.btnCreate);
+        createButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Boolean checker = new Boolean(true);
+                EditText et = (EditText) findViewById(R.id.txtEmail);
+                EditText pet = (EditText) findViewById(R.id.txtPassword);
+                EditText net = (EditText) findViewById(R.id.txtName);
+                String email = et.getText().toString();
+                String password = pet.getText().toString();
+                String name = net.getText().toString();
+                if (email.equals("")){
+                    Toast t = Toast.makeText(CreateAccount.this,"Cannot be blank",Toast.LENGTH_LONG);
+                    t.show();
+                    et.setBackgroundColor(Color.RED);
+                    checker = false;
+                }
+                if (password.equals("")){
+                    Toast t = Toast.makeText(CreateAccount.this,"Cannot be blank",Toast.LENGTH_LONG);
+                    t.show();
+                    pet.setBackgroundColor(Color.RED);
+                    checker = false;
+                }
+                if (name.equals("")){
+                    Toast t = Toast.makeText(CreateAccount.this,"Cannot be blank",Toast.LENGTH_LONG);
+                    t.show();
+                    net.setBackgroundColor(Color.RED);
+                    checker = false;
+                }
+
+                if (checker == true) {
+                    Toast t = Toast.makeText(CreateAccount.this,"Account Created!\nLook for" +
+                            "a verification email shortly",Toast.LENGTH_LONG);
+                    t.show();
+                    Intent intent = new Intent();
+                    intent.putExtra(MainActivity.RETURN_EMAIL, email);
+                    intent.putExtra(MainActivity.RETURN_PW, password);
+                    intent.putExtra(MainActivity.RETURN_NAME, name);
+                    setResult(RESULT_OK, intent);
+                    //close current activity and return to parent
+                    finish();
+                }
+
+            }
+        });
