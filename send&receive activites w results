@@ -1,0 +1,39 @@
+//Generic function for all onClick=""
+    public void click(View view) {
+        Intent intent;
+        switch (view.getId()) {
+            case R.id.createAccount:
+                intent = new Intent(this, CreateAccount.class);
+                startActivityForResult(intent, RETURN_REQUEST);
+        }
+
+    }
+    
+    
+    
+    
+    
+    
+    //first make sure you are coming from right detailed activity and everything is ok
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //check request code against constant sent with intent
+        if (requestCode == RETURN_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                String email = data.getStringExtra(RETURN_EMAIL);
+                String password = data.getStringExtra(RETURN_PW);
+                String name = data.getStringExtra(RETURN_NAME);
+                EditText et = (EditText) findViewById(R.id.txtEmail);
+                EditText pet = (EditText) findViewById(R.id.txtPassword);
+                pet.setText(password);
+                et.setText(email);
+                Athlete athlete = new Athlete(password, name, email);
+                athletes.add(athlete);
+                //Snackbar.make(coordinatorLayout,athletes.get(0).toString(), Snackbar.LENGTH_LONG)
+                //        .setAction("Action", null).show();
+                //setAction dispalys link for user to take another step
+                ////Snackbar.make(coordinatorLayout,"Test",Snackbar.LENGTH_LONG)
+                ////    .setAction("Go to test",)
+            }
+        }
+    }
