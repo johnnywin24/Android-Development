@@ -1,0 +1,29 @@
+private static String ourEmail = "thelockerlink@gmail.com";
+    private LinearLayout linearLayout;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_create_account);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        linearLayout = (LinearLayout) findViewById(R.id.create_layout);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TextView textview = (TextView)findViewById(R.id.createAccount);
+                //textview.setOnClickListener(new View.OnClickListener(){
+                //send email, first put email in array
+                String[] addresses = {ourEmail};
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                //this makes only email apps get this request
+                intent.setData(Uri.parse("mailto:"));
+                //this would allow you to send to more than one email at a time
+                intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+                intent.putExtra(Intent.EXTRA_TEXT, "Please send some info");
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
+        });
