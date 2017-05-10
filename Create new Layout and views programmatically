@@ -1,0 +1,55 @@
+ public LinearLayout getPost() {
+
+        //Code to automatically generate posts for LockerTalk programatically
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.gravity = Gravity.CENTER_HORIZONTAL;
+
+        params.setMargins(20, 20, 20, 20);
+
+        //For edit text views
+        ViewGroup.LayoutParams editTextParams = new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+
+
+        Drawable dwSiluet = getResources().getDrawable(R.drawable.siluet);
+
+
+        TextView tvImage = new TextView(this);
+        tvImage.setCompoundDrawablesWithIntrinsicBounds(null, dwSiluet, null, null);
+        tvImage.setLayoutParams(editTextParams);
+        tvImage.setTextSize(16);
+        tvImage.setGravity(Gravity.CENTER_HORIZONTAL);
+
+        TextView tvDate = new TextView(this);
+        tvDate.setLayoutParams(editTextParams);
+        tvDate.setGravity(Gravity.CENTER);
+        tvDate.setText("05/04/17 5:12 PM\n");
+
+        TextView tvName = new TextView(this);
+        tvName.setLayoutParams(editTextParams);
+        tvName.setGravity(Gravity.CENTER);
+        tvName.setText("Damion Jones");
+        tvName.setTextSize(18);
+
+        TextView tvPost = new TextView(this);
+        tvPost.setLayoutParams(editTextParams);
+        tvPost.setTextSize(20);
+        tvPost.setGravity(Gravity.CENTER);
+        tvPost.setText("Check out this new LockerLink App!");
+
+        LinearLayout linearLayout = new LinearLayout(this);
+        linearLayout.setBackgroundResource(R.drawable.square_border);
+        linearLayout.setLayoutParams(params);
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        linearLayout.addView(tvImage);
+        linearLayout.addView(tvName);
+        linearLayout.addView(tvDate);
+        linearLayout.addView(tvPost);
+        linearLayout.setGravity(Gravity.CENTER);
+        return linearLayout;
+
+    }
