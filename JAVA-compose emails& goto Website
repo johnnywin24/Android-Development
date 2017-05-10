@@ -27,3 +27,16 @@ private static String ourEmail = "thelockerlink@gmail.com";
                 }
             }
         });
+
+
+
+
+
+
+
+//Example on implicit intent that goes to a external website. requires string and uri
+                //Intent goToWebsite = new Intent(Intent.Action_View, Uri.parse("www.google.com"))
+                //Now must resolve the activity
+                //resolveActivity method returns object if it finds an app that can handle uri
+                //if (goToWebsite.resolveActivity(getPackageManager() != null){
+                //      startActivity(webIntent)}
