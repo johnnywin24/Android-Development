@@ -1,0 +1,18 @@
+BottomNavigationView bottomNavigationView = (BottomNavigationView)
+                findViewById(R.id.bottomNav);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.btnLockerTalk:
+
+                            case R.id.btnAlerts:
+
+                            case R.id.btnTeammates:
+
+                        }
+                        return true;
+                    }
+                });
