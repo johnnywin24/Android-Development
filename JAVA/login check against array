@@ -1,0 +1,45 @@
+ //When clicking login
+        Button loginButton = (Button) findViewById(R.id.btnLogin);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText email = (EditText) findViewById(R.id.txtEmail);
+                EditText password = (EditText) findViewById(R.id.txtPassword);
+                int length = athletes.size();
+                if (length == 0){
+                    Snackbar.make(coordinatorLayout, "Username " +
+                            "not found in our system!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                    return;
+                }
+                else{
+                    for (int i = 0; i < length; i++) {
+                        Snackbar.make(coordinatorLayout, "length: " + length, Snackbar.LENGTH_SHORT)
+                                .setAction("Action", null).show();
+                        Snackbar.make(coordinatorLayout, athletes.get(i).toString(), Snackbar.LENGTH_SHORT)
+                                .setAction("Action", null).show();
+                        if (email.getText().toString().equals(athletes.get(i).getEmail())) {
+                            if (password.getText().toString().equals(athletes.get(i).getPassword())) {
+                                //Login
+                                Intent intent = new Intent(v.getContext(), LockerTalk.class);
+                                startActivity(intent);
+                            }
+                            else {
+                                Snackbar.make(coordinatorLayout, "Your password " +
+                                        "is not correct!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                            }
+                        }
+                        else {
+                            Snackbar.make(coordinatorLayout, "Username " +
+                                    "not found in our system!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                        }
+
+
+
+                    }
+                }
+
+
+
+            }
+        });
+    }
