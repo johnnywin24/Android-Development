@@ -1,0 +1,28 @@
+package firstapp.com.thelockerlink.fragmentapp;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+/**
+ * A placeholder fragment containing a simple view.
+ */
+public class myFragment extends Fragment {
+
+    public myFragment() {
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        
+        //return custom made rootView. whenever instance of this class is added to
+        // an activity, oncreate is called which creates the view and returns it
+        View rootView = inflater.inflate(R.layout.myFragment, container, false);
+        return rootView;
+    }
+
+}
