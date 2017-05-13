@@ -21,5 +21,13 @@
 
 
 //Then in the content_main.xml changes tools to the ID
-
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment"
+    android:name="firstapp.com.thelockerlink.fragmentapp.MainActivityFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:layout="@layout/my_fragment" />
+
