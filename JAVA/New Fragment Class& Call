@@ -26,3 +26,14 @@ public class myFragment extends Fragment {
     }
 
 }
+
+
+//THEN IN THE MAIN CLASS CALL IT LIKE THIS
+
+ //create my fragment object, inside the class it already sets the layout
+        //we just need to add it to the container
+        myFragment frag = new myFragment();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.my_container, frag)
+                .commit();
